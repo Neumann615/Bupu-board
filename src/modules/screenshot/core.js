@@ -186,7 +186,7 @@ function eventBinding() {
 //画笔部分事件绑定
 function writeEventBinding() {
     function setLineType(e) {
-        if (e.srcElement.className.includes("wxx-module-item")) {
+        if (e.srcElement.className.includes("bupu-module-item")) {
             changeIsSelected(writeLineTypeDom.children, e.srcElement)
             writeOptions.lineType = e.srcElement.getAttribute("lineType")
             write(writeOptions)
@@ -203,7 +203,7 @@ function writeEventBinding() {
     }
 
     function setColor(e) {
-        if (e.srcElement.className.includes("wxx-module-item")) {
+        if (e.srcElement.className.includes("bupu-module-item")) {
             changeIsSelected(writeColorDom.children, e.srcElement)
             writeOptions.color = e.srcElement.getAttribute("color")
             write(writeOptions)
@@ -211,9 +211,9 @@ function writeEventBinding() {
     }
 
 
-    let writeLineTypeDom = document.getElementById("wxx-write-linetype")
-    let writeColorDom = document.getElementById("wxx-write-color")
-    let writeLineWidthDom = document.getElementById("wxx-write-linewidth")
+    let writeLineTypeDom = document.getElementById("bupu-write-linetype")
+    let writeColorDom = document.getElementById("bupu-write-color")
+    let writeLineWidthDom = document.getElementById("bupu-write-linewidth")
     //清除
     writeLineWidthDom.removeEventListener("change", setLineWidth)
     writeLineTypeDom.removeEventListener("click", setLineType)
@@ -229,7 +229,7 @@ function writeEventBinding() {
 function drawEventBinding() {
 
     function setShapeType(e) {
-        if (e.srcElement.className.includes("wxx-module-item")) {
+        if (e.srcElement.className.includes("bupu-module-item")) {
             changeIsSelected(drawShapeTypeDom.children, e.srcElement)
             drawOptions.shapeType = e.srcElement.getAttribute("shapeType")
             draw(drawOptions)
@@ -246,16 +246,16 @@ function drawEventBinding() {
     }
 
     function setColor(e) {
-        if (e.srcElement.className.includes("wxx-module-item")) {
+        if (e.srcElement.className.includes("bupu-module-item")) {
             changeIsSelected(drawColorDom.children, e.srcElement)
             drawOptions.color = e.srcElement.getAttribute("color")
             draw(drawOptions)
         }
     }
 
-    let drawShapeTypeDom = document.getElementById("wxx-draw-shapetype")
-    let drawColorDom = document.getElementById("wxx-draw-color")
-    let drawLineWidthDom = document.getElementById("wxx-draw-linewidth")
+    let drawShapeTypeDom = document.getElementById("bupu-draw-shapetype")
+    let drawColorDom = document.getElementById("bupu-draw-color")
+    let drawLineWidthDom = document.getElementById("bupu-draw-linewidth")
     drawLineWidthDom.addEventListener("change", setLineWidth)
     drawShapeTypeDom.addEventListener("click", setShapeType)
     drawColorDom.addEventListener("click", setColor)
@@ -274,15 +274,15 @@ function textEventBinding() {
     }
 
     function setColor(e) {
-        if (e.srcElement.className.includes("wxx-module-item")) {
+        if (e.srcElement.className.includes("bupu-module-item")) {
             changeIsSelected(textColorDom.children, e.srcElement)
             textOptions.color = e.srcElement.getAttribute("color")
             text(textOptions)
         }
     }
 
-    let textFontDom = document.getElementById("wxx-text-fontsize")
-    let textColorDom = document.getElementById("wxx-text-color")
+    let textFontDom = document.getElementById("bupu-text-fontsize")
+    let textColorDom = document.getElementById("bupu-text-color")
     textFontDom.addEventListener("change", setFont)
     textColorDom.addEventListener("click", setColor)
 }
@@ -331,7 +331,7 @@ function initScreenShotBackground() {
             h
         } = screenShotPosition
         let editBox = document.createElement("div")
-        editBox.className = "wxx-screen-edit"
+        editBox.className = "bupu-screen-edit"
         editBox.style.width = w + "px"
         editBox.style.height = h + "px"
         editBox.style.left = x1 + "px"
@@ -385,14 +385,14 @@ export function initScreenShot(dom, options) {
     //初始化传递进来的参数
     options && updateScreenShotVar(options)
     let toolbarContainer = document.createElement("div")
-    toolbarContainer.className = "wxx-screen-toolbar wxx-toolbar-vertical"
+    toolbarContainer.className = "bupu-screen-toolbar bupu-toolbar-vertical"
     if (options.toolbarPosition === "top" || options.toolbarPosition === "bottom") {
-        toolbarContainer.className = "wxx-screen-toolbar wxx-toolbar-horizontal"
+        toolbarContainer.className = "bupu-screen-toolbar bupu-toolbar-horizontal"
     }
     let toolbarContainerChild1 = document.createElement("div")
-    toolbarContainerChild1.className = "wxx-toolbar-content"
+    toolbarContainerChild1.className = "bupu-toolbar-content"
     let toolbarContainerChild2 = document.createElement("div")
-    toolbarContainerChild2.className = "wxx-toolbar-content"
+    toolbarContainerChild2.className = "bupu-toolbar-content"
     domAppendChild(toolbarContainerChild1, [writeDom, drawDom, textDom])
     domAppendChild(toolbarContainerChild2, [undoDom, exitDom, successDom])
     domAppendChild(toolbarContainer, [toolbarContainerChild1, toolbarContainerChild2])
@@ -417,7 +417,7 @@ export function initScreenShot(dom, options) {
     })
     //绑定双击事件
     containerDom.addEventListener("dblclick", (e) => {
-        if (e.target.className.indexOf("wxx-toolbar") !== -1) return
+        if (e.target.className.indexOf("bupu-toolbar") !== -1) return
         if (screenShotDataSet.successHandler) {
             if (screenShotPosition) {
                 initScreenShotBackground().then(() => {
@@ -433,13 +433,13 @@ export function initScreenShot(dom, options) {
     })
     //右键绑定
     containerDom.addEventListener("contextmenu", (e) => {
-        if (e.target.className === "wxx-overlay") {
+        if (e.target.className === "bupu-overlay") {
             //清空当前选中
             if (screenShotPosition) {
                 // console.log("点在外面", screenShotPosition)
                 resetSelect()
             }
-        } else if (e.target.id === "wxx-select-range") {
+        } else if (e.target.id === "bupu-select-range") {
             // console.log("点在里面")
         }
         e.stopPropagation()
@@ -453,8 +453,8 @@ export function initScreenShot(dom, options) {
 export function unmountScreenShot() {
     if (mountDom) {
         mountDom.innerHTML = ""
-        let tooltipList = document.getElementsByClassName("wxx-tooltip")
-        let popoverList = document.getElementsByClassName("wxx-popover")
+        let tooltipList = document.getElementsByClassName("bupu-tooltip")
+        let popoverList = document.getElementsByClassName("bupu-popover")
         for (let i = 0; i < tooltipList.length; i++) {
             tooltipList[i].parentElement.removeChild(tooltipList[i])
         }
@@ -472,7 +472,7 @@ export function unmountScreenShot() {
                     h
                 } = screenShotPosition
                 let editBox = document.createElement("div")
-                editBox.className = "wxx-screen-edit"
+                editBox.className = "bupu-screen-edit"
                 editBox.style.width = w + "px"
                 editBox.style.height = h + "px"
                 editBox.style.left = x1 + "px"

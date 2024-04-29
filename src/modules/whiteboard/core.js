@@ -248,7 +248,7 @@ function eventBinding() {
 //画笔部分事件绑定
 function writeEventBinding() {
     function setLineType(e) {
-        if (e.srcElement.className.includes("wxx-module-item")) {
+        if (e.srcElement.className.includes("bupu-module-item")) {
             changeIsSelected(writeLineTypeDom.children, e.srcElement)
             writeOptions.lineType = e.srcElement.getAttribute("lineType")
             write(writeOptions)
@@ -265,7 +265,7 @@ function writeEventBinding() {
     }
 
     function setColor(e) {
-        if (e.srcElement.className.includes("wxx-module-item")) {
+        if (e.srcElement.className.includes("bupu-module-item")) {
             changeIsSelected(writeColorDom.children, e.srcElement)
             writeOptions.color = e.srcElement.getAttribute("color")
             write(writeOptions)
@@ -273,9 +273,9 @@ function writeEventBinding() {
     }
 
 
-    let writeLineTypeDom = document.getElementById("wxx-write-linetype")
-    let writeColorDom = document.getElementById("wxx-write-color")
-    let writeLineWidthDom = document.getElementById("wxx-write-linewidth")
+    let writeLineTypeDom = document.getElementById("bupu-write-linetype")
+    let writeColorDom = document.getElementById("bupu-write-color")
+    let writeLineWidthDom = document.getElementById("bupu-write-linewidth")
     //清除
     writeLineWidthDom.removeEventListener("change", setLineWidth)
     writeLineTypeDom.removeEventListener("click", setLineType)
@@ -291,7 +291,7 @@ function writeEventBinding() {
 function drawEventBinding() {
 
     function setShapeType(e) {
-        if (e.srcElement.className.includes("wxx-module-item")) {
+        if (e.srcElement.className.includes("bupu-module-item")) {
             changeIsSelected(drawShapeTypeDom.children, e.srcElement)
             drawOptions.shapeType = e.srcElement.getAttribute("shapeType")
             draw(drawOptions)
@@ -308,16 +308,16 @@ function drawEventBinding() {
     }
 
     function setColor(e) {
-        if (e.srcElement.className.includes("wxx-module-item")) {
+        if (e.srcElement.className.includes("bupu-module-item")) {
             changeIsSelected(drawColorDom.children, e.srcElement)
             drawOptions.color = e.srcElement.getAttribute("color")
             draw(drawOptions)
         }
     }
 
-    let drawShapeTypeDom = document.getElementById("wxx-draw-shapetype")
-    let drawColorDom = document.getElementById("wxx-draw-color")
-    let drawLineWidthDom = document.getElementById("wxx-draw-linewidth")
+    let drawShapeTypeDom = document.getElementById("bupu-draw-shapetype")
+    let drawColorDom = document.getElementById("bupu-draw-color")
+    let drawLineWidthDom = document.getElementById("bupu-draw-linewidth")
     drawLineWidthDom.addEventListener("change", setLineWidth)
     drawShapeTypeDom.addEventListener("click", setShapeType)
     drawColorDom.addEventListener("click", setColor)
@@ -336,15 +336,15 @@ function textEventBinding() {
     }
 
     function setColor(e) {
-        if (e.srcElement.className.includes("wxx-module-item")) {
+        if (e.srcElement.className.includes("bupu-module-item")) {
             changeIsSelected(textColorDom.children, e.srcElement)
             textOptions.color = e.srcElement.getAttribute("color")
             text(textOptions)
         }
     }
 
-    let textFontDom = document.getElementById("wxx-text-fontsize")
-    let textColorDom = document.getElementById("wxx-text-color")
+    let textFontDom = document.getElementById("bupu-text-fontsize")
+    let textColorDom = document.getElementById("bupu-text-color")
     textFontDom.addEventListener("change", setFont)
     textColorDom.addEventListener("click", setColor)
 }
@@ -393,20 +393,20 @@ export function initWhiteBoard(dom, options) {
     selectRangeDom = renderSelectRange()
     //工具栏模块
     let toolbarContainer = document.createElement("div")
-    toolbarContainer.className = "wxx-toolbar"
+    toolbarContainer.className = "bupu-toolbar"
     let toolbarContainerChild1 = document.createElement("div")
-    toolbarContainerChild1.className = "wxx-toolbar-child wxx-toolbar-vertical"
+    toolbarContainerChild1.className = "bupu-toolbar-child bupu-toolbar-vertical"
     //功能模块1
     let toolbarContent1 = document.createElement("div")
-    toolbarContent1.className = "wxx-toolbar-content"
+    toolbarContent1.className = "bupu-toolbar-content"
     domAppendChild(toolbarContent1, [imageDom, pointerDom, writeDom, drawDom, textDom])
     //功能模块2
     let toolbarContent2 = document.createElement("div")
-    toolbarContent2.className = "wxx-toolbar-content"
+    toolbarContent2.className = "bupu-toolbar-content"
     domAppendChild(toolbarContent2, [undoDom, redoDom, eraserDom])
     //功能模块3
     let toolbarContent3 = document.createElement("div")
-    toolbarContent3.className = "wxx-toolbar-content"
+    toolbarContent3.className = "bupu-toolbar-content"
     domAppendChild(toolbarContent3, [addPageDom, deletePageDom, resetDom, saveDom])
     domAppendChild(toolbarContainerChild1, [toolbarContent1, toolbarContent2, toolbarContent3])
     domAppendChild(toolbarContainer, [toolbarContainerChild1, paginationDom])
@@ -436,8 +436,8 @@ export function unmountWhiteBoard() {
     if (mountDom) {
         mountDom.innerHTML = ""
         resetToolbarData()
-        let tooltipList = document.getElementsByClassName("wxx-tooltip")
-        let popoverList = document.getElementsByClassName("wxx-popover")
+        let tooltipList = document.getElementsByClassName("bupu-tooltip")
+        let popoverList = document.getElementsByClassName("bupu-popover")
         for (let i = 0; i < tooltipList.length; i++) {
             tooltipList[i].parentElement.removeChild(tooltipList[i])
         }

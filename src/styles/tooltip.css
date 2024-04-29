@@ -1,4 +1,4 @@
-.wxx-tooltip {
+.bupu-tooltip {
     width: auto;
     height: auto;
     z-index: 2003;
@@ -11,12 +11,12 @@
     border-radius: 4px;
 }
 
-.wxx-tooltip > * {
+.bupu-tooltip > * {
     user-select: none !important;
 }
 
 
-.wxx-tooltip-arrow {
+.bupu-tooltip-arrow {
     width: 10px;
     height: 10px;
     position: absolute;
@@ -26,7 +26,7 @@
     box-shadow: 0px 0px 10px rgba(0, 0, 0, .12);
 }
 
-.wxx-tooltip-content {
+.bupu-tooltip-content {
     width: auto;
     max-width: 200px;
     height: auto;

@@ -5,11 +5,11 @@ let isPopover = false
 export function popover(dom, params) {
     let {placement, content} = params
     let popoverDom = document.createElement("div")
-    popoverDom.className = "wxx-popover"
+    popoverDom.className = "bupu-popover"
     let arrowDom = document.createElement("span")
-    arrowDom.className = "wxx-popover-arrow"
+    arrowDom.className = "bupu-popover-arrow"
     let contentDom = document.createElement("div")
-    contentDom.className = "wxx-popover-content"
+    contentDom.className = "bupu-popover-content"
     contentDom.appendChild(content)
     domAppendChild(popoverDom, [arrowDom, contentDom])
     dom.addEventListener("click", (e) => {
@@ -54,13 +54,13 @@ document.body.addEventListener("mousedown", (e) => {
         let isRemove = true
         e.composedPath()?.forEach(item => {
             item.classList && item.classList.length && item.classList.forEach(className => {
-                if (className == "wxx-popover") {
+                if (className == "bupu-popover") {
                     isRemove = false
                 }
             })
         })
         if (isRemove) {
-            let popoverList = document.getElementsByClassName("wxx-popover")
+            let popoverList = document.getElementsByClassName("bupu-popover")
             if (popoverList && popoverList.length) {
                 document.body.removeChild(popoverList[0])
                 isPopover = false
@@ -74,13 +74,13 @@ document.body.addEventListener("touchstart",(e)=>{
         let isRemove = true
         e.composedPath()?.forEach(item => {
             item.classList && item.classList.length && item.classList.forEach(className => {
-                if (className == "wxx-popover") {
+                if (className == "bupu-popover") {
                     isRemove = false
                 }
             })
         })
         if (isRemove) {
-            let popoverList = document.getElementsByClassName("wxx-popover")
+            let popoverList = document.getElementsByClassName("bupu-popover")
             if (popoverList && popoverList.length) {
                 document.body.removeChild(popoverList[0])
                 isPopover = false

@@ -112,7 +112,7 @@ export function clearCanvas() {
 
 //清除文本dom元素
 export function clearTextDom() {
-    const arr = document.getElementsByClassName('wxx-edit-box');
+    const arr = document.getElementsByClassName('bupu-edit-box');
     const l = arr.length;
     for (let i = l - 1; i >= 0; i--) {
         if (arr[i] != null) {
@@ -307,7 +307,7 @@ export async function restoreArtBoardState(canvasDataContent) {
         //文本
         else if (options.drawType == 6) {
             let editBox = document.createElement("div")
-            editBox.className = "wxx-edit-box"
+            editBox.className = "bupu-edit-box"
             editBox.style.padding = "4px"
             editBox.style.border = "none"
             editBox.style.left = options.style.left + "px"
@@ -943,7 +943,7 @@ export function text(options) {
         if (!first) return
         let editBox = document.createElement("div")
         editBox.contentEditable = "true"
-        editBox.className = "wxx-edit-box"
+        editBox.className = "bupu-edit-box"
         editBox.style.fontSize = options.fontSize + "px"
         editBox.style.color = options.color
         editBox.style.left = first.x + "px"
@@ -1021,7 +1021,7 @@ export function save() {
     // a.href = canvas.toDataURL("image/png", 1)
     // a.download = Date.now() + "-wxx"
     // a.click()
-    html2canvas(document.getElementsByClassName("wxx-screen-edit")[0]).then(canvas => {
+    html2canvas(document.getElementsByClassName("bupu-screen-edit")[0]).then(canvas => {
         let a = document.createElement("a")
         a.href = canvas.toDataURL("image/png", 1)
         a.download = Date.now() + "-wxx"
@@ -1032,7 +1032,7 @@ export function save() {
 //成功的回调
 export function success() {
     if (screenShotDataSet.successHandler) {
-        html2canvas(document.getElementsByClassName("wxx-screen-edit")[0]).then(canvas => {
+        html2canvas(document.getElementsByClassName("bupu-screen-edit")[0]).then(canvas => {
             let base64Data = canvas.toDataURL("image/png", 1)
             screenShotDataSet.successHandler(base64Data)
         })

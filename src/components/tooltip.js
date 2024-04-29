@@ -5,11 +5,11 @@ let isTooltip = true
 export function tooltip(dom, params) {
     let {placement, content} = params
     let tooltipDom = document.createElement("div")
-    tooltipDom.className = "wxx-tooltip"
+    tooltipDom.className = "bupu-tooltip"
     let arrowDom = document.createElement("span")
-    arrowDom.className = "wxx-tooltip-arrow"
+    arrowDom.className = "bupu-tooltip-arrow"
     let contentDom = document.createElement("div")
-    contentDom.className = "wxx-tooltip-content"
+    contentDom.className = "bupu-tooltip-content"
     contentDom.innerText = content
     domAppendChild(tooltipDom, [arrowDom, contentDom])
     dom.addEventListener("mouseover", () => {

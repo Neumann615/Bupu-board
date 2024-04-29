@@ -21,8 +21,8 @@ export default defineConfig({
         lib: {
             entry: [resolve(__dirname, 'src/index.js')],
             formats: ["es", "cjs", "iife", "umd", "amd", "system"],
-            name: "multiFunctionDrawingBoard",
-            fileName: 'multiFunctionDrawingBoard'
+            name: "bupuBoard",
+            fileName: 'bupuBoard'
         }
     }
 })

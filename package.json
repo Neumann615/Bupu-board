@@ -1,20 +1,19 @@
 {
-  "name": "multi-function-drawing-board",
-  "description": "A multi-functional drawing board based on business encapsulation",
+  "name": "Bupu-board",
   "version": "0.0.7",
   "license": "MIT",
   "author": "wxx",
   "type": "module",
-  "main": "dist/multiFunctionDrawingBoard.js",
-  "module": "dist/multiFunctionDrawingBoard.js",
+  "main": "dist/bupuBoard.js",
+  "module": "dist/bupuBoard.js",
   "files": [
     "dist"
   ],
   "style": "dist/style.css",
   "exports": {
     ".": {
-      "import": "dist/multiFunctionDrawingBoard.js",
-      "require": "dist/multiFunctionDrawingBoard.js"
+      "import": "dist/bupuBoard.js",
+      "require": "dist/bupuBoard.js"
     },
     "./*": "./*"
   },

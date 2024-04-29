@@ -214,7 +214,7 @@ export function selectDrawRect() {
         if (mousePress && first) {
             positionScreenShotToolbar(false)
             if (nowType === "draw") {
-                if (event.srcElement.className === "wxx-overlay") {
+                if (event.srcElement.className === "bupu-overlay") {
                     last = getPos(event)
                     //drawSelect(first.x, first.y, last.x, last.y)
                     // console.log(Math.abs((first.x - last.x) * (first.y - last.y)), first, last, first.x - last.x, first.y - last.y)
