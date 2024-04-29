@@ -1,0 +1,37 @@
+{
+  "name": "multi-function-drawing-board",
+  "description": "A multi-functional drawing board based on business encapsulation",
+  "version": "0.0.7",
+  "license": "MIT",
+  "author": "wxx",
+  "type": "module",
+  "main": "dist/multiFunctionDrawingBoard.js",
+  "module": "dist/multiFunctionDrawingBoard.js",
+  "files": [
+    "dist"
+  ],
+  "style": "dist/style.css",
+  "exports": {
+    ".": {
+      "import": "dist/multiFunctionDrawingBoard.js",
+      "require": "dist/multiFunctionDrawingBoard.js"
+    },
+    "./*": "./*"
+  },
+  "scripts": {
+    "dev": "vite --host",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "keywords": [
+    "whiteboard",
+    "screenshot"
+  ],
+  "dependencies": {
+    "js-web-screen-shot": "^1.9.9-rc.7",
+    "msg-alert": "^1.0.0-beta.3"
+  },
+  "devDependencies": {
+    "vite": "^4.1.0"
+  }
+}
