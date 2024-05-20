@@ -1,19 +1,19 @@
 {
   "name": "Bupu-board",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "license": "MIT",
   "author": "wxx",
   "type": "module",
-  "main": "dist/bupuBoard.js",
-  "module": "dist/bupuBoard.js",
+  "main": "lib/Bupu-board.js",
+  "module": "lib/Bupu-board.js",
   "files": [
-    "dist"
+    "lib"
   ],
   "style": "dist/style.css",
   "exports": {
     ".": {
-      "import": "dist/bupuBoard.js",
-      "require": "dist/bupuBoard.js"
+      "import": "lib/Bupu-board.js",
+      "require": "lib/Bupu-board.js"
     },
     "./*": "./*"
   },

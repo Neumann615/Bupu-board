@@ -18,11 +18,12 @@ export default defineConfig({
         assetsDir: "../assets",
         sourcemap: false,
         minify: "esbuild",
+        outDir:"lib",
         lib: {
             entry: [resolve(__dirname, 'src/index.js')],
             formats: ["es", "cjs", "iife", "umd", "amd", "system"],
-            name: "bupuBoard",
-            fileName: 'bupuBoard'
+            name: "Bupu-board",
+            fileName: 'Bupu-board'
         }
     }
 })
