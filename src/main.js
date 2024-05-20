@@ -10,12 +10,29 @@ import "./styles/tooltip.css"
 import "./styles/common.css"
 import "./assets/iconfont/iconfont.css"
 
-let flag = 0
+
 let dom = document.getElementById("app")
 
-if (flag) {
+function getUrlParams() {
+    const paramString = window.location.search.substr(1); // 移除查询字符串开始的问号
+    const paramArray = paramString.split('&'); // 将字符串分割成键值对数组
+    const params = {};
+    for (let i = 0; i < paramArray.length; i++) {
+        const pair = paramArray[i].split('='); // 分割键和值
+        if (pair.length === 2) { // 确保键值对正确分割
+            const key = decodeURIComponent(pair[0]);
+            const value = decodeURIComponent(pair[1]);
+            params[key] = value;
+        }
+    }
+    return params;
+}
+
+let mode = getUrlParams()["mode"] || "screenshot"
+
+if (mode === "screenshot") {
     initScreenShot(dom, {
-        imageUrl: "http://192.168.31.6:5173/test.png",
+        imageUrl: "test.png",
         toolbarPosition: "bottom",
         successHandler: (v) => {
             console.log("成功的回调用", v)
@@ -37,7 +54,7 @@ if (flag) {
     //         }
     //     })
     // },5000)
-} else {
+} else if (mode === "whiteboard") {
     initWhiteBoard(dom, {
         addCanvasHistoryHandler: (v) => {
             console.log(v)
